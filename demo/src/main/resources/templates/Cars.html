@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div class = "container">
+
+    <table class = "table">
+        <thead>
+        <tr><td> mark </td><td> plate </td><td> milage </td><td> current errand </td></tr>
+        </thead>
+
+    <tbody th:each="car : ${cars}">
+
+        <tr>
+            <td th:text = "${car.mark}"></td>
+            <td th:text = "${car.plate}"></td>
+            <td th:text = "${car.mileage}"></td>
+            <td>
+
+
+                <span th:if="${car.errand==null}">No errand</span>
+
+                <span th:if="${car.errand!=null}" th:text="${car.errand.description}"/><a th:href=${'/assignErrand?plate='+car.plate}> Edit / assign errand </a></span>
+            </td>
+
+            <td> <a th:href=${'/car?plate='+car.plate}> Details </a> </td>
+
+            <td> <a th:href=${'/car/delete/'+car.plate}> Delete</a> </td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="row">
+        <a href="/newcar">Add new car</a>
+    </div>
+
+</div>
+</body>
+</html>

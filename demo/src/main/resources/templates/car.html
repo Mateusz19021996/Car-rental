@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Addcar</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div class = "container">
+    <p th:text = "${car.mark}"></p>
+    <p th:text = "${car.plate}"></p>
+    <p th:text = "${car.mileage}"></p>
+    <p th:text = "${car.errand}"></p>
+</div>
+</body>
+</html>
